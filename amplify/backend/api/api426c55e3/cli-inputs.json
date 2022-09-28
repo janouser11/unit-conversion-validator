@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/validate": {
+      "name": "/validate",
+      "lambdaFunction": "ValidateUnitConversionHandler",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
