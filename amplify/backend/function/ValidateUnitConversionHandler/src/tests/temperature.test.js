@@ -1,5 +1,5 @@
 const { handler } = require("../index.js");
-const helper = require("./test-helpers");
+const helper = require("./temperature-helpers");
 
 describe("Converting from fahrenheit", () => {
   // testing fahrenheit => other temps

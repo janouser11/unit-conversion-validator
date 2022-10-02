@@ -1,17 +1,13 @@
 const { KELVIN, CELSIUS, FAHRENHEIT, RANKINE } = require("./constants");
+const { isUnitOfMeasurementVolume } = require("./helpers");
 const {
-  isUnitOfMeasurementVolume,
   convertFromFahrenheit,
   convertFromCelsius,
   convertFromRankine,
   convertFromKelvin,
-} = require("./helpers");
-const Converter = require("node-temperature-converter");
-const _ = require("lodash");
+} = require("./temperature-helpers");
 
-// verify payload looks similiar to what we would expect
 exports.calculateConversions = async (conversions) => {
-  // {"initialProblem":{"value":84.2,"unitOfMeasure":"liters"},"studentResponse":{"value":543.94,"unitOfMeasure":"tablespoons"}}
   // determine if we are working in temperatures or volumes
   const isVolume = isUnitOfMeasurementVolume(conversions);
   if (isVolume) {
@@ -20,10 +16,6 @@ exports.calculateConversions = async (conversions) => {
     // its temperature type
     return validateTemperatureConversion(conversions);
   }
-};
-
-const validateVolumeConversion = (conversions) => {
-  return true;
 };
 
 const validateTemperatureConversion = (conversions) => {
@@ -40,15 +32,8 @@ const validateTemperatureConversion = (conversions) => {
     default:
       throw new Error("Temperature not supported");
   }
-  throw new Error("Something went wrong");
 };
 
-// {
-//   status: 'correct',
-//   message: ''
-// }
-// {
-//   status: 'invalid',
-//   message: '',
-//   correctValue: 25.25
-// }
+const validateVolumeConversion = (conversions) => {
+  return true;
+};

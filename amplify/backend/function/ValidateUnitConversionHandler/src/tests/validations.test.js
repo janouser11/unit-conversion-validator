@@ -1,5 +1,5 @@
 const { handler } = require("../index.js");
-const helper = require("./test-helpers");
+const helper = require("./helpers.js");
 
 describe("Validation unit tests", () => {
   it("verifies no conversions handled", async () => {
