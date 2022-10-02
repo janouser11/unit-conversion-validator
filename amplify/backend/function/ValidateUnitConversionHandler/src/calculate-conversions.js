@@ -17,7 +17,14 @@ const {
   convertFromRankine,
   convertFromKelvin,
 } = require("./helpers/temperature-helpers");
-const { convertFromLiters } = require("./helpers/volume-helpers");
+const {
+  convertFromLiters,
+  convertFromTablespoons,
+  convertFromCubicInches,
+  convertFromCups,
+  convertFromCubicFeet,
+  convertFromGallons,
+} = require("./helpers/volume-helpers");
 
 exports.calculateConversions = async (conversions) => {
   // determine if we are working in temperatures or volumes
@@ -48,15 +55,15 @@ const validateVolumeConversion = (conversions) => {
     case LITERS:
       return convertFromLiters(conversions);
     case TABLESPOONS:
-      return;
+      return convertFromTablespoons(conversions);
     case CUBIC_INCHES:
-      return;
+      return convertFromCubicInches(conversions);
     case CUPS:
-      return;
+      return convertFromCups(conversions);
     case CUBIC_FEET:
-      return;
+      return convertFromCubicFeet(conversions);
     case GALLONS:
-      return;
+      return convertFromGallons(conversions);
     default:
       throw new Error("Temperature not supported");
   }

@@ -12,18 +12,8 @@ exports.handler = async (event) => {
 
   const result = await calculateConversions(event);
 
-  // {
-  //   status: 'correct',
-  //   message: ''
-  // }
-  // {
-  //   status: 'invalid',
-  //   message: '',
-  //   correctValue: 25.25
-  // }
   return {
     statusCode: 200,
-    //  Uncomment below to enable CORS requests
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Headers": "*",

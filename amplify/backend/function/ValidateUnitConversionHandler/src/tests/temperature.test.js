@@ -11,8 +11,7 @@ describe("Converting from fahrenheit", () => {
     const response = await handler(event);
 
     //assert
-    expect(response.statusCode).toEqual(200);
-    expect(response.body).toEqual(helper.getCorrectResponseBody());
+    assertCorrectResponse(response);
   });
 
   it("unsuccessfully converts fahrenheit to celsius", async () => {
@@ -35,8 +34,7 @@ describe("Converting from fahrenheit", () => {
     const response = await handler(event);
 
     //assert
-    expect(response.statusCode).toEqual(200);
-    expect(response.body).toEqual(helper.getCorrectResponseBody());
+    assertCorrectResponse(response);
   });
 
   it("successfully converts fahrenheit to rankine", async () => {
@@ -47,8 +45,7 @@ describe("Converting from fahrenheit", () => {
     const response = await handler(event);
 
     //assert
-    expect(response.statusCode).toEqual(200);
-    expect(response.body).toEqual(helper.getCorrectResponseBody());
+    assertCorrectResponse(response);
   });
 
   it("successfully converts fahrenheit to rankine", async () => {
@@ -59,8 +56,7 @@ describe("Converting from fahrenheit", () => {
     const response = await handler(event);
 
     //assert
-    expect(response.statusCode).toEqual(200);
-    expect(response.body).toEqual(helper.getCorrectResponseBody());
+    assertCorrectResponse(response);
   });
 });
 
@@ -73,8 +69,7 @@ describe("Converting from celsius", () => {
     const response = await handler(event);
 
     //assert
-    expect(response.statusCode).toEqual(200);
-    expect(response.body).toEqual(helper.getCorrectResponseBody());
+    assertCorrectResponse(response);
   });
 
   it("successfully converts celsius to fahrenheit", async () => {
@@ -85,8 +80,7 @@ describe("Converting from celsius", () => {
     const response = await handler(event);
 
     //assert
-    expect(response.statusCode).toEqual(200);
-    expect(response.body).toEqual(helper.getCorrectResponseBody());
+    assertCorrectResponse(response);
   });
 
   it("successfully converts celsius to rankine", async () => {
@@ -97,8 +91,7 @@ describe("Converting from celsius", () => {
     const response = await handler(event);
 
     //assert
-    expect(response.statusCode).toEqual(200);
-    expect(response.body).toEqual(helper.getCorrectResponseBody());
+    assertCorrectResponse(response);
   });
 });
 
@@ -111,8 +104,7 @@ describe("Converting from rankine", () => {
     const response = await handler(event);
 
     //assert
-    expect(response.statusCode).toEqual(200);
-    expect(response.body).toEqual(helper.getCorrectResponseBody());
+    assertCorrectResponse(response);
   });
 
   it("successfully converts rankine to celsius", async () => {
@@ -123,8 +115,7 @@ describe("Converting from rankine", () => {
     const response = await handler(event);
 
     //assert
-    expect(response.statusCode).toEqual(200);
-    expect(response.body).toEqual(helper.getCorrectResponseBody());
+    assertCorrectResponse(response);
   });
 
   it("successfully converts rankine to fahrenheit", async () => {
@@ -135,8 +126,7 @@ describe("Converting from rankine", () => {
     const response = await handler(event);
 
     //assert
-    expect(response.statusCode).toEqual(200);
-    expect(response.body).toEqual(helper.getCorrectResponseBody());
+    assertCorrectResponse(response);
   });
 });
 
@@ -149,8 +139,7 @@ describe("Converting from kelvin", () => {
     const response = await handler(event);
 
     //assert
-    expect(response.statusCode).toEqual(200);
-    expect(response.body).toEqual(helper.getCorrectResponseBody());
+    assertCorrectResponse(response);
   });
 
   it("successfully converts kelvin to celsius", async () => {
@@ -161,8 +150,7 @@ describe("Converting from kelvin", () => {
     const response = await handler(event);
 
     //assert
-    expect(response.statusCode).toEqual(200);
-    expect(response.body).toEqual(helper.getCorrectResponseBody());
+    assertCorrectResponse(response);
   });
 
   it("successfully converts kelvin to fahrenheit", async () => {
@@ -173,15 +161,11 @@ describe("Converting from kelvin", () => {
     const response = await handler(event);
 
     //assert
-    expect(response.statusCode).toEqual(200);
-    expect(response.body).toEqual(helper.getCorrectResponseBody());
+    assertCorrectResponse(response);
   });
 });
 
-describe("Testing handler with volumes", () => {
-  it("successfully converts fahrenheit to celsius", async () => {
-    // act
-    //arrange
-    //assert
-  });
-});
+function assertCorrectResponse(response) {
+  expect(response.statusCode).toEqual(200);
+  expect(response.body).toEqual(helper.getCorrectResponseBody());
+}
