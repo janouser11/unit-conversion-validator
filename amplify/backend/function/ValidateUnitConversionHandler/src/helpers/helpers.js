@@ -1,6 +1,6 @@
-const constants = require("./constants");
+const constants = require("../constants");
 const _ = require("lodash");
-const { STATUS } = require("./constants");
+const { STATUS } = require("../constants");
 
 exports.isUnitOfMeasurementVolume = (conversions) => {
   // determine if we are working in temperatures or volumes
@@ -16,7 +16,7 @@ exports.getStatus = (studentValue, calculatedValue) =>
     this.roundToTenths(calculatedValue)
   )
     ? getCorrectStatus()
-    : getIncorrectStatus(calculatedValue);
+    : getIncorrectStatus(this.roundToTenths(calculatedValue));
 
 exports.roundToTenths = (number) => Math.round(number * 10) / 10;
 
