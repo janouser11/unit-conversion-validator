@@ -1,10 +1,10 @@
 {
   "initialProblem": {
-    "value": 84.2,
-    "unitOfMeasure": "liters"
+    "value": 32,
+    "unitOfMeasure": "fahrenheit"
   },
   "studentResponse": {
-    "value": 543.94,
-    "unitOfMeasure": "tablespoons"
+    "value": 0,
+    "unitOfMeasure": "celsius"
   }
 }
