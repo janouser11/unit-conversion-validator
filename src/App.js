@@ -15,6 +15,7 @@ import TextField from "@mui/material/TextField";
 import { BoxProps } from "@mui/material/Box";
 import EastIcon from "@mui/icons-material/East";
 import Button from "@mui/material/Button";
+import Alert from "@mui/material/Alert";
 
 const myAPI = "api426c55e3";
 const path = "/validate";
@@ -44,6 +45,9 @@ function App() {
   const [studentProblemUnit, setStudentProblemUnit] = React.useState();
   const [initialValue, setInitialValue] = React.useState();
   const [studentValue, setStudentValue] = React.useState();
+  const [calculateStatus, setCalculateStatus] = React.useState();
+  const [statusMessage, setStatusMessage] = React.useState();
+  const [correctValue, setCorrectValue] = React.useState();
 
   const handleInitalValueChange = (event) =>
     setInitialValue(event.target.value);
@@ -58,11 +62,11 @@ function App() {
   const handleCalculate = () => {
     const payload = {
       initialProblem: {
-        value: parseInt(initialValue),
+        value: parseFloat(initialValue),
         unitOfMeasure: initialProblemUnit,
       },
       studentResponse: {
-        value: parseInt(studentValue),
+        value: parseFloat(studentValue),
         unitOfMeasure: studentProblemUnit,
       },
     };
@@ -77,9 +81,22 @@ function App() {
     API.post(myAPI, endpoint, myInit)
       .then((response) => {
         console.log(response);
+        setCalculateStatus(response.status);
+        if (response.message) {
+          setStatusMessage(response.message);
+        }
+
+        if (response?.correctValue != null) {
+          setCorrectValue(response.correctValue);
+        }
       })
       .catch((error) => {
         console.log(error);
+        const { response } = error;
+        if (response?.data) {
+          setCalculateStatus(response.data.status);
+          setStatusMessage(response.data.message);
+        }
       });
   };
 
@@ -171,6 +188,17 @@ function App() {
           >
             Calculate
           </Button>
+          <Box mt={4} width={500}>
+            {calculateStatus == "correct" && (
+              <Alert severity="success">Correct!</Alert>
+            )}
+            {calculateStatus == "incorrect" && (
+              <Alert severity="error">Incorrect. Answer: {correctValue}</Alert>
+            )}
+            {calculateStatus == "invalid" && (
+              <Alert severity="error">{statusMessage}</Alert>
+            )}
+          </Box>
         </Box>
       </Container>
     </>
