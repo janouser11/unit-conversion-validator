@@ -6,11 +6,12 @@ const { calculateConversions } = require("./calculate-conversions");
  */
 exports.handler = async (event) => {
   // validating data coming in, will return validation message if invalid
-  const validationMessage = await validate(event);
+  const jsonBody = JSON.parse(event.body);
+  const validationMessage = await validate(jsonBody);
 
   if (validationMessage) return validationErrorResponse(validationMessage);
 
-  const result = await calculateConversions(event);
+  const result = await calculateConversions(jsonBody);
 
   return {
     statusCode: 200,

@@ -1,5 +1,6 @@
 const { handler } = require("../index.js");
 const helper = require("./volume-helpers");
+const baseHelper = require("./helpers.js");
 
 const assertCorrectResponse = (response) => {
   expect(response.statusCode).toEqual(200);
@@ -12,7 +13,7 @@ describe("Converting from liters", () => {
     const event = helper.getCorrectLiterToTablespoonEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -23,7 +24,7 @@ describe("Converting from liters", () => {
     const event = helper.getCorrectLiterToCubicInchesEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -34,7 +35,7 @@ describe("Converting from liters", () => {
     const event = helper.getCorrectLiterToCupsEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -45,7 +46,7 @@ describe("Converting from liters", () => {
     const event = helper.getCorrectLiterToCubicFeetEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -56,7 +57,7 @@ describe("Converting from liters", () => {
     const event = helper.getCorrectLiterToGallonsEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -69,7 +70,7 @@ describe("Converting from tablespoons", () => {
     const event = helper.getCorrectTablespoonToLitersEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -80,7 +81,7 @@ describe("Converting from tablespoons", () => {
     const event = helper.getCorrectTablespoonToCubicInchesEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -91,7 +92,7 @@ describe("Converting from tablespoons", () => {
     const event = helper.getCorrectTablespoonToCupsEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -102,7 +103,7 @@ describe("Converting from tablespoons", () => {
     const event = helper.getCorrectTablespoonToCubicFeetEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -113,7 +114,7 @@ describe("Converting from tablespoons", () => {
     const event = helper.getCorrectTablespoonToGallonsEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -126,7 +127,7 @@ describe("Converting from cubic inches", () => {
     const event = helper.getCorrectCubicInchesToLitersEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -137,7 +138,7 @@ describe("Converting from cubic inches", () => {
     const event = helper.getCorrectCubicInchesToTablespoonsEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -148,7 +149,7 @@ describe("Converting from cubic inches", () => {
     const event = helper.getCorrectCubicInchesToCupsEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -159,7 +160,7 @@ describe("Converting from cubic inches", () => {
     const event = helper.getCorrectCubicInchesToCubicFeetEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -170,7 +171,7 @@ describe("Converting from cubic inches", () => {
     const event = helper.getCorrectCubicInchesToGallonsEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -183,7 +184,7 @@ describe("Converting from cups", () => {
     const event = helper.getCorrectCupsToLitersEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -194,7 +195,7 @@ describe("Converting from cups", () => {
     const event = helper.getCorrectCupsToTablespoonsEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -205,7 +206,7 @@ describe("Converting from cups", () => {
     const event = helper.getCorrectCupsToCubicInchesEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -216,7 +217,7 @@ describe("Converting from cups", () => {
     const event = helper.getCorrectCupsToCubicFeetEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -227,7 +228,7 @@ describe("Converting from cups", () => {
     const event = helper.getCorrectCupsToGallonsEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -240,7 +241,7 @@ describe("Converting from cubic feet", () => {
     const event = helper.getCorrectCubicFeetToLitersEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -251,7 +252,7 @@ describe("Converting from cubic feet", () => {
     const event = helper.getCorrectCubicFeetToTablespoonsEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -262,7 +263,7 @@ describe("Converting from cubic feet", () => {
     const event = helper.getCorrectCubicFeetToCubicInchesEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -273,7 +274,7 @@ describe("Converting from cubic feet", () => {
     const event = helper.getCorrectCubicFeetToCupEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -284,7 +285,7 @@ describe("Converting from cubic feet", () => {
     const event = helper.getCorrectCubicFeetToGallonsEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -297,7 +298,7 @@ describe("Converting from gallons", () => {
     const event = helper.getCorrectGallonsToLitersEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -308,7 +309,7 @@ describe("Converting from gallons", () => {
     const event = helper.getCorrectGallonsToTablespoonsEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -319,7 +320,7 @@ describe("Converting from gallons", () => {
     const event = helper.getCorrectGallonsToCubicInchesEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -330,7 +331,7 @@ describe("Converting from gallons", () => {
     const event = helper.getCorrectGallonsToCupEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -341,7 +342,7 @@ describe("Converting from gallons", () => {
     const event = helper.getCorrectGallonsToCubicFeetEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(baseHelper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
