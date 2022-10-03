@@ -1,5 +1,10 @@
 {
-  "key1": "value1",
-  "key2": "value2",
-  "key3": "value3"
+  "initialProblem": {
+    "value": 32,
+    "unitOfMeasure": "fahrenheit"
+  },
+  "studentResponse": {
+    "value": 0,
+    "unitOfMeasure": "celsius"
+  }
 }
