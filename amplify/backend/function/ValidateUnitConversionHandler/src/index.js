@@ -5,7 +5,7 @@ const { calculateConversions } = require("./calculate-conversions");
  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
  */
 exports.handler = async (event) => {
-  // validating data coming in, will throw error on failure
+  // validating data coming in, will return validation message if invalid
   const validationMessage = await validate(event);
 
   if (validationMessage) return validationErrorResponse(validationMessage);
