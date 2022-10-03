@@ -7,7 +7,7 @@ describe("Validation unit tests", () => {
     const event = null;
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(helper.wrapEventWithBody(event));
 
     //assert
     expect(response.statusCode).toEqual(400);
@@ -21,7 +21,7 @@ describe("Validation unit tests", () => {
     const event = helper.getEventWithNoInitialProblem();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(helper.wrapEventWithBody(event));
 
     //assert
     expect(response.statusCode).toEqual(400);
@@ -35,7 +35,7 @@ describe("Validation unit tests", () => {
     const event = helper.getEventWithNoStudentResponse();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(helper.wrapEventWithBody(event));
 
     //assert
     expect(response.statusCode).toEqual(400);
@@ -49,7 +49,7 @@ describe("Validation unit tests", () => {
     const event = helper.getInvalidUnitOfMeasureEvent();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(helper.wrapEventWithBody(event));
 
     //assert
     expect(response.statusCode).toEqual(400);
@@ -69,7 +69,7 @@ describe("Example scenarios", () => {
     const event = helper.getExampleScenario1();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(helper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -80,7 +80,7 @@ describe("Example scenarios", () => {
     const event = helper.getExampleScenario2();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(helper.wrapEventWithBody(event));
 
     //assert
     expect(response.statusCode).toEqual(200);
@@ -92,7 +92,7 @@ describe("Example scenarios", () => {
     const event = helper.getExampleScenario3();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(helper.wrapEventWithBody(event));
 
     //assert
     assertCorrectResponse(response);
@@ -103,7 +103,7 @@ describe("Example scenarios", () => {
     const event = helper.getExampleScenario4();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(helper.wrapEventWithBody(event));
 
     //assert
     expect(response.statusCode).toEqual(400);
@@ -121,7 +121,7 @@ describe("Example scenarios", () => {
     const event = helper.getExampleScenario5();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(helper.wrapEventWithBody(event));
 
     //assert
     expect(response.statusCode).toEqual(400);
@@ -135,7 +135,7 @@ describe("Example scenarios", () => {
     const event = helper.getExampleScenario6();
 
     //arrange
-    const response = await handler(event);
+    const response = await handler(helper.wrapEventWithBody(event));
 
     //assert
     expect(response.statusCode).toEqual(400);

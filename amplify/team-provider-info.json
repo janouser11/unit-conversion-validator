@@ -15,7 +15,7 @@
       "function": {
         "ValidateUnitConversionHandler": {
           "deploymentBucketName": "amplify-unitconversion-dev-214323-deployment",
-          "s3Key": "amplify-builds/ValidateUnitConversionHandler-37657348456d67745474-build.zip"
+          "s3Key": "amplify-builds/ValidateUnitConversionHandler-43664954624d44353579-build.zip"
         }
       }
     }

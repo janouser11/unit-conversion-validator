@@ -104,3 +104,5 @@ exports.getExampleScenario6 = () => ({
     unitOfMeasure: "celsius",
   },
 });
+
+exports.wrapEventWithBody = (event) => ({ body: JSON.stringify(event) });
